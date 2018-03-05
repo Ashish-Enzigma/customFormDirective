@@ -1,0 +1,22 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
+    <script src ="{!$Resource.inputElement}" type="text/javascript"> </script>
+  
+    
+    <div ng-app="myApp" ng-controller="mycnt">
+        
+    
+        <div class="slds-form slds-form_stacked" >
+            
+          	<enzi-Form>
+            <enzi-input-text type="firstname"></enzi-input-text>
+            <enzi-input-text type="lastname"></enzi-input-text>
+            <enzi-input-text type="email"></enzi-input-text>
+            <enzi-input-text type="submitButton"></enzi-input-text>
+            <enzi-input-text type="cancelButton"></enzi-input-text>
+           </enzi-Form>
+        </div>
+             
+    </div>
+</apex:page>
