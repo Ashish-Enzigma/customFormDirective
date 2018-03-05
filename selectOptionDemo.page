@@ -1,0 +1,18 @@
+<apex:page lightningStylesheets="true">
+    <apex:slds />
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    <script src ="{!$Resource.customFormDirective}" type="text/javascript"> </script>
+    
+    <div ng-app="selectOptionApp" class="slds-form">
+        <label class="slds-form-element__label" for="select-01">Select Label</label>
+        <div ng-controller="selectOptionController">
+           <form>
+                <enzi-select-list options="employeeSelectValue"></enzi-select-list>
+           </form>
+            <br/><br/>
+           <form>
+                <enzi-select-list options="candidateSelectValue"></enzi-select-list>
+           </form>
+        </div>
+    </div>
+</apex:page>
