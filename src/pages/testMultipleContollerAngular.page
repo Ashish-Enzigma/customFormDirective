@@ -1,0 +1,31 @@
+<apex:page >
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    
+
+	<script>
+		var myApp = angular.module('myApp',[]);
+		myApp.run(function($rootScope){
+			console.log('In run');
+			$rootScope.msg = 'In Root Scope';
+		});
+		myApp.controller('myAppController',function($scope){
+			console.log('In myAppController');
+			$scope.msg = 'In Controller1';
+			
+		});
+		myApp.controller('myAppController2',function($scope){
+			$scope.msg='In conroller2'
+		});
+	</script>
+	
+	<div ng-app='myApp'>
+    	<div ng-controller='myAppController'>
+      		<h1>Hello ... {{$parent.msg}}</h1>
+      		<h1>{{msg}}</h1>
+    	</div>
+    	<div ng-controller='myAppController2'>
+      		<h1>Hello ... {{msg}}</h1>
+      		
+    	</div>
+    </div>
+</apex:page>

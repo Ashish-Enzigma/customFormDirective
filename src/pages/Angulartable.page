@@ -1,0 +1,32 @@
+<apex:page >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+    	var app = angular.module('myApp', []);
+    	app.controller('myCtrl', function($scope) {
+        	$scope.names=[	
+                	{Name:"Ashish",
+                	Country:"Pune"},
+            		{Name:"Jayesh",
+                	Country:"Gujrat"},
+                	{Name:"Raj",
+                	Country:"Munbai"}
+            ]
+        });
+    	
+    	
+    </script>
+    <div ng-app="myApp" >
+        <div ng-controller='myCtrl'>
+            <table border="1">
+                <td>Name</td>  <td>Country</td>
+                <tr ng-repeat="name in names | orderBy : 'Country'">
+            	<!--<div ng-repeat='name in names'> In Above line Filtter is user-->
+                    
+                	<td>{{name.Name}}</td>  <td>{{name.Country}}</td>
+                </tr>
+            </table>
+            
+    		
+        </div>
+    </div>
+</apex:page>

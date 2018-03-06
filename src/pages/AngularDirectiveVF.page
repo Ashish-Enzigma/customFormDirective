@@ -1,0 +1,71 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+        var Obj = angular.module('DemoDir',[]);
+    </script>
+    <script>
+    angular.module('DemoDir', [])
+    .controller('myCtrl', ['$scope', function($scope) {
+        $scope.count = 0;
+        $scope.myFunc = function() {
+            $scope.count++;
+        };
+    }]);
+    </script>
+    
+    <style>
+        .sky {
+        color:white;
+        background-color:lightblue;
+        padding:20px;
+        font-family:"Courier New";
+        }
+        
+        .tomato {
+        background-color:lightblue;
+        padding:40px;
+        font-family:Verdana;
+        }
+    </style>
+    
+    <div ng-app = "DemoDir"> 
+        
+        <input type="checkbox"  ng-model="myVar" ng-init="myVar = true" />
+        
+        
+        <select ng-model="test">
+            <option value="sky">Sky</option>
+            <option value="tomato">LightBlue</option>
+        </select>
+        
+        <div ng-if="myVar" ng-class="test">
+            <h1>Welcome</h1>
+            <p>Ready To Hide If Check Box is not return true value</p><br/>
+        </div> 
+        
+                <input type = "checkbox" ng-model = "enableDisableButton">Disable Button</input>
+    			<button ng-disabled = "enableDisableButton">Click Me!</button><br/>           
+            
+            
+                <input type = "checkbox" ng-model = "showHide1">Show Button</input>
+				<button ng-show = "showHide1">Click Me!</button> <br/>          
+            
+            
+                <input type = "checkbox" ng-model = "showHide2">Hide Button</input>
+				<button ng-hide = "showHide2">Click Me!</button>  <br/>         
+            
+            
+                <p>Total click: {{ clickCounter }}</p>
+                <button ng-click = "clickCounter = clickCounter + 1">Click Me!</button><br/>
+
+                <div ng-controller="myCtrl">
+                    <p>Write something in the input field:</p>
+                    <input type="text" ng-change="myFunc()" ng-model="myValue" />
+                    <p>The input field has changed {{count}} times.</p>
+                </div>
+				
+				
+
+    </div>
+</apex:page>

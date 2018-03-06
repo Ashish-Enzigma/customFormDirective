@@ -1,0 +1,52 @@
+<apex:page >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+    	var app = angular.module('myApp', []);
+    	var count=0;
+    	app.service("MyService",function(){
+                    this.sayHello= function(){
+            			console.log("Hello Checked Log It is right");
+                        count=count+1;
+                        return "hello hi"+count;
+        			}
+                    
+                    this.addition=function(a,b){
+                        return (a+b);
+                    }
+        });
+    
+    	app.controller('myCtrl', function($scope,MyService) {
+            $scope.abc="";
+            $scope.sum="";  
+            $scope.controllerCallService = function()
+            {
+                 $scope.abc=MyService.sayHello();
+                 
+            }
+            $scope.additionService = function(v1,v2)
+            {
+                 $scope.sum=MyService.addition(v1,v2);
+                 
+            }
+        });
+    	
+    	
+    </script>
+    <div ng-app="myApp" >
+        <div ng-controller='myCtrl'>
+            	<form>
+                Chick on Button and Check Ur Log::
+                <input type="button" value="Click Me!" ng-click="controllerCallService()" />            
+                    <label ng-bind="abc"></label><br/>
+            	
+            	<h1> Addtion Of Two Number</h1><br/>
+                    
+                First Value: <input type="number" ng-model="value1"/><br/>
+                Second Value: <input type="number" ng-model="value2"/><br/>
+              	<input type="button" value="Addition" ng-click="additionService(value1,value2)"/>            
+            	<label ng-bind="sum"></label>
+            	</form>
+    		
+        </div>
+    </div>
+</apex:page>

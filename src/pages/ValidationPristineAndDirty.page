@@ -1,0 +1,29 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+    	var app=angular.module('myApp',[]);    
+    </script>
+    
+    <!--pristine(false) and pristine(true)-->
+    <style>
+        form.ng-pristine {
+        background-color:lightblue;
+        }
+        form.ng-dirty {
+        background-color:pink;
+        }
+    </style>
+    
+    <div ng-app='myApp'>        
+    <form name="myForm">
+        Type Any thing<input name="myInput" ng-model="myInput" required="false"/>
+        
+        If any changes is comes in our programe ng-dirty will comes ture and reflect pink in form 
+    </form>
+    
+    
+    <p>Input field is in valid state on not:</p>
+    <h1>{{myForm.myInput.$pristine}}</h1>
+    </div>
+</apex:page>

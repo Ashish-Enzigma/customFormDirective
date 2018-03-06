@@ -1,0 +1,14 @@
+<apex:page controller="VfActionSupportController">
+    <apex:form >
+        <apex:outputPanel id="counter">
+            <apex:outputText Value="Click Me: {!count}"/>
+            <apex:actionSupport event="onclick"
+                                action="{!incrementCounter}"
+                                rerender="counter" status="counterStatus"/>
+            </apex:outputPanel>
+        	<apex:actionStatus id="conterStatus"
+                               startText="(incrementing...)"
+                               stopText="(done...)"/>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,17 @@
+<apex:page controller="VfApexActionFunctionController">
+    <apex:form >
+        <div id='Refresh'>
+            <apex:actionFunction name="CallControllerMethod" action="{!getRecord}" rerender="Refresh"/>
+            <button onclick="CallControllerMethod()">
+                click me to call
+            </button>
+        </div>
+    </apex:form>
+    <span id="a">
+        {!strCheck}
+    </span>
+    <script type="javascript/text">
+    alert('Call');
+    alert("{!strCheck}");
+    </script>
+</apex:page>

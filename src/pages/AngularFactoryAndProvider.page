@@ -1,0 +1,60 @@
+<apex:page >
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+   <script>
+   	var app = angular.module("myApp", []); 
+          
+           app.controller('myCtrl', function($scope,myProvider) {
+              
+               console.log(myProvider);
+               
+           });
+   
+   	app.controller('myCtrl2', function($scope,myProvider) {
+              
+               console.log(myProvider);
+              
+               
+           });
+   
+   	
+   	app.config(function(myProviderProvider){
+               
+               myProviderProvider.setFunction("new value");
+               
+           }); 
+   
+   // app.value("myProvider","Dhaval");  	
+   
+    app.provider("myProvider",function(){
+           	
+                   this.value = "myvalue";
+               
+        this.setFunction = function(newValue)
+               {
+                   this.value = newValue;
+               }
+               
+               this.$get = function() // Execute Only once
+               {
+                   console.log("$get method in myprovider"); // only execute once
+               	return this.value;
+               };
+               
+           }); 
+   	
+   </script>
+   
+   <div ng-app = "myApp" >
+       
+       <div ng-controller = "myCtrl">
+           
+       </div>
+       
+       <div ng-controller = "myCtrl2">
+           
+       </div>
+       
+      
+       
+   </div>
+</apex:page>

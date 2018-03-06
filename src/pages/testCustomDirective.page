@@ -1,0 +1,49 @@
+<apex:page >
+    
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.directive('student', function() {
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollno}}</b>";
+            
+            directive.scope = {
+               student : "=name"
+            }
+            
+            directive.compile = function(element, attributes) {
+               element.css("border", "1px solid black");
+               
+               var linkFunction = function($scope, element, attributes) {
+                  element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollno+"</b><br/>");
+                  
+               }
+               return linkFunction;
+            }
+            
+            return directive;
+         });
+         
+         mainApp.controller('StudentController', function($scope) {
+            $scope.Ashish = {};
+            $scope.Ashish.name = "Ashish Mishra";
+            $scope.Ashish.rollno  = 1;
+
+            $scope.Jitesh = {};
+            $scope.Jitesh.name = "Jitesh Adwani";
+            $scope.Jitesh.rollno  = 2;
+         });
+			
+      </script>
+    
+    
+    <h2>AngularJS Sample Application</h2>
+      
+      <div ng-app = "mainApp" ng-controller = "StudentController">
+         <student name = "Ashish"></student><br/>
+         <student name = "Jitesh"></student>
+      </div>
+</apex:page>

@@ -1,0 +1,22 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+    	var app=angular.module('myApp',[]);    
+    </script>
+    
+    <div ng-app='myApp'>        
+    
+    <form name="myForm">
+        <p>Name:
+            <input name="myName" ng-model="myName" require='false'/>
+            <span ng-show="myForm.myName.$touched">The name is required.</span>
+        </p>
+        
+        <p>Address:
+            <input name="myAddress" ng-model="myAddress" require='false'/>
+        </p>
+        
+    </form>
+    </div>
+</apex:page>

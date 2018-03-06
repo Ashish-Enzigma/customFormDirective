@@ -1,0 +1,24 @@
+<apex:page controller="AccountRemoter" extensions="AccountRemoterExtension">
+    <script type="text/javascript">
+    function getRemoteAccount(){
+        var accountName =document.getElementById('acctSeach').value;//Return Value of text field
+        alert('hi..'+accountName);
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.AccountRemoter.getAccount}',
+            accountName,
+            function(result,event){
+                document.getElementById('remoteAcctId').innerHTML = result.Id;
+                document.getElementById('remoteAcctName').innerHTML = result.Name;
+                document.getElementById('remoteAcctPhone').innerHTML = result.Phone;               
+                
+            }
+        );
+
+    }
+    </script>
+    <input id="acctSeach" type="text"/>
+    <Button onClick="getRemoteAccount()"> Get Account </Button><br/>
+    <div><label for="AccountId">Account Id:</label><span id="remoteAcctId"/></div>
+            <div><label for="Name">Account Name:</label><span id="remoteAcctName"/></div>
+            <div><label for="male">Account Phone:</label><span id="remoteAcctPhone"/></div>
+</apex:page>

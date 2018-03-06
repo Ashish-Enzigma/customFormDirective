@@ -1,0 +1,36 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+        var ngApp = angular.module('myNgApp', []);
+    	
+    	//1stController
+    	ngApp.controller('myController', function ($scope) {
+                
+        $scope.$watch('message', function (newValue, oldValue) {
+            $scope.newMessage = newValue;
+            $scope.oldMessage = oldValue;
+        });        
+        
+    	});
+    
+    	//2ndController
+    	ngApp.controller('SecondController',function($scope){
+        	$scope.name='Ashish';
+        });
+    </script>
+    
+    <div ng-app='myNgApp'>
+		<div ng-controller='myController'>
+            Enter Message:<input type="text" ng-model="message"/><br/>
+            New Meassage Show:{{newMessage}}<br/>
+            Old Messge Show  :{{oldMessage}}<br/>
+            
+        </div> 
+        <div ng-controller='SecondController'>
+            
+            SayHello......{{name}}
+           <!--<span ng-bind="name"></span>-->
+        </div>
+    </div>
+</apex:page>

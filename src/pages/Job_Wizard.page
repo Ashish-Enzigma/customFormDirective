@@ -1,0 +1,23 @@
+<!--<apex:page standardController="job_ashish__c" sidebar="false" showHeader="false" >-->
+<apex:page standardController="job_ashish__c" extensions="navigationToPageController" sidebar="false" showHeader="false">
+  <apex:form >
+  <apex:pageBlock title="Job Wizard" onmouseover="Job Wizard">
+      <apex:pageBlockSection >
+          <div><apex:image URL="{!$Resource.Enzigma_logo}"/></div>            
+          <div>
+              <u>Job Registration:</u><br/>
+                <p>Step-1:</p>
+          </div><br/>
+          <div>            
+          
+          <apex:inputField value="{!job_ashish__c.RecordTypeId}" required="true"/><br/>
+          <apex:inputField value="{!job_ashish__c.Name}" required="true"/>  <br/>    
+          <apex:inputTextarea value="{!job_ashish__c.Description__c}"/><br/>
+          <apex:inputField value="{!job_ashish__c.Number_of_Positions__c}"/><br/>
+          <apex:inputField value="{!job_ashish__c.Contact__c}"/><br/>  
+          <apex:inputField value="{!job_ashish__c.Expires_On__c}"/><br/>
+          <apex:commandButton value="Save & Next"  action="{!step2}"/> </div>            
+      </apex:pageBlockSection>
+  </apex:pageBlock>  
+  </apex:form>
+</apex:page>

@@ -1,0 +1,33 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script> 
+        var app = angular.module('myApp',[])
+        
+        app.controller('testController',function($scope,$window){
+            $scope.a=1;
+            $scope.b=2;
+            $scope.c=3;
+            //$scope.d=4;
+            $scope.$watchGroup(['a','b'], function (newValue, oldValue) {
+                if(newValue1 != oldValue){
+                    $scope.c = $scope.a * $scope.b;
+                }
+        });
+            
+   });
+    
+    </script>
+    <div ng-app='myApp'>
+        <div ng-controller='testController'>
+            
+            <!--a=<input ng-model='a'/>-->
+            
+            a=<input ng-model='a'/>
+            b=<input ng-model='b'/>
+            
+            <div> c={{c}}</div>
+        </div>
+    </div>
+    
+</apex:page>

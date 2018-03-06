@@ -1,0 +1,42 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+        var Demo = angular.module('DemoAngular',[]);
+    
+    	Demo.controller('myController', function ($scope) {
+            $scope.message = "Hello World!"; 
+            $scope.test="123"
+        });
+    </script> 
+    
+    
+    <div ng-app='DemoAngular' ng-init = "countries = [{Code:'US',name:'United States'}, {Code:'UK',name:'United Kingdom'}, {Code:'FR',name:'France'}]">
+        Enter your Name:<input type="text" ng-model="name" placeholeder="Enter Your name"/><br/>
+        <span> Hello <label ng-bind="name"></label></span> 
+        
+        <!--Repeat Call Created-->
+        <p>List of Countries with Code:</p>
+        <ol>
+            <li ng-repeat = "country in countries">
+                {{ 'Country: ' + country.name + ', Code: ' + country.Code }}
+            </li>
+        </ol>
+        
+        <!--Controller Created-->
+        <div ng-controller="myController">
+            {{message}}
+            {{'testValue::'+test}}
+        </div>
+        
+        <!--Show And Hide option for div-->
+        <!--
+        <div ng-show = "IsVisible">My DIV</div>
+        
+        <div ng-hide = "IsHidden">My DIV2</div>-->
+        
+        
+        
+        
+    </div>
+</apex:page>

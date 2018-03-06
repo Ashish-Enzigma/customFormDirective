@@ -1,0 +1,39 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    <script>
+        var app=angular.module('directivesModule',[]).directive('myIsolatedScopeWithModelAndFunction', function () {
+        return {
+            scope: {
+                datasource: '=',
+                action : '&'
+            },
+            template: '<ul><li ng-repeat="prop in datasource">{{ prop }}</li></ul> ' +
+            '<button ng-click="action()">Change Data</button>'
+        };
+    });
+    
+    app.controller('myController',function($scope){
+         
+        var counter=1;
+        $scope.changeData = function () {
+            counter++;
+            $scope.customer = {
+                name: 'James',
+                street: counter + ' Cedar Point St.'
+            };
+        };
+    });
+    </script>
+        
+        <div ng-app="directivesModule" ng-controller='myController'>
+            <my-isolated-scope-with-model-and-function datasource="customer" action="changeData()">
+               </my-isolated-scope-with-model-and-function>
+            <!--<div my-isolated-scope-with-model-and-function 
+                 datasource="customer" 
+                 action="changeData()">               
+			</div>--> 
+           
+        </div>
+            
+            
+</apex:page>

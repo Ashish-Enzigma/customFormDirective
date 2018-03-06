@@ -1,0 +1,16 @@
+<apex:page Controller="AccountPageController" >
+	 <apex:form >
+  		<apex:pageBlock title="AccountPage">
+            <apex:pageBlockSection >
+                <b><apex:outputLabel value="Company Name" /></b>
+        	<apex:inputText value="{!strCompanyName}" id="companyName"/><br/>
+                <b><apex:outputLabel value="First Name" /></b>
+            <apex:inputText value="{!strFirstName}" id="firstName"/><br/>
+                <b><apex:outputLabel value="Last Name" /></b>
+            <apex:inputText value="{!strLastName}" id="lstName"/><br/>
+            
+            <apex:commandButton value="Save & Next"  action="{!save}"/>
+        	</apex:pageBlockSection>
+            </apex:pageBlock>
+  	</apex:form>
+</apex:page>

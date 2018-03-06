@@ -1,0 +1,37 @@
+<apex:page sidebar="false" controller="Wrapper">
+    <apex:form >
+    <apex:pageBlock title="Accounts Table">
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!wrapContactList}" var="wraplist">
+				<apex:column value="{!wraplist.objAccount.Name}"/>
+                <apex:column headerValue="Contacts" colspan="3">
+                    
+                    <apex:repeat value="{!wraplist.lstContact}" var="contact">
+                        <table >
+                            
+                            <tr> 
+                                <td>{!contact.FirstName}</td> 
+                                <td>{!contact.LastName}</td> 
+                                <td>{!contact.Phone}</td>                                     
+                            </tr> 
+                        </table>
+                    </apex:repeat>
+                </apex:column>                  
+                <apex:column headerValue="Opportunities" colspan="3">
+                    <apex:repeat value="{!wraplist.lstOpportunity}" var="opportunity">                        
+                        <table  >                            
+                            <tr >
+                                
+                                <td>{!opportunity.Name}</td> 
+                                <td>{!opportunity.CloseDate}</td> 
+                                <td>{!opportunity.StageName}</td>                                     
+                            </tr> 
+                        </table>
+                    </apex:repeat>
+                </apex:column>               
+
+            </apex:pageBlockTable>
+        </apex:pageBlockSection> 
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

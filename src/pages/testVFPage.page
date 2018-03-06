@@ -1,0 +1,35 @@
+<apex:page >
+    <!--Testing Isolatsed Scope-->
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+   <script>
+       var isolatedApp = angular.module('isolatedApp',[]);
+   
+    isolatedApp.controller('isolatedController',function($scope){
+            $scope.product1 = { Name: 'TV', Brand: 'Sony', Price: 5000 };
+           $scope.customer = {
+           	name: 'David',
+               street: 'Pune'
+           }
+       });
+   
+    isolatedApp.directive('ngIsolatedScope',function(){
+       	return{
+              
+               scope: {
+                    name:'@',
+                    person: '='
+               },  
+               //   template: 'Name: {{customer.name }}--street: {{customer.street}}'
+               template:'Name: {{person.name}}<br/>Street: {{person.street}}'
+           }
+       });
+   
+   </script>
+   <div ng-app="isolatedApp">
+       <div ng-controller="isolatedController">
+           <!--<ng-isolated-scope  name="{{customer.name}}"></ng-isolated-scope>-->
+           <ng-isolated-scope person="customer"></ng-isolated-scope>
+       </div>
+   </div>
+  
+</apex:page>

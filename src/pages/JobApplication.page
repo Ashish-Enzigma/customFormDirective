@@ -1,0 +1,122 @@
+<apex:page standardController="Candidate_Ashish__c" extensions="Fetch_ActiveJobList" sidebar="false" showHeader="false">
+    <apex:stylesheet value="{!URLFOR($Resource.StaticResources,'application_css/Style.css')}"/>
+    <h1>
+        Ashish test
+    </h1>
+  <apex:form >
+  <apex:pageBlock title="Job Wizard" onmouseover="Job Wizard">
+      <!--<apex:pageBlockSection >-->
+          <div><apex:image URL="{!$Resource.Enzigma_logo}"/></div>            
+          <div>
+              <u>Job Apllication:</u><br/>
+                <p>Step-1:</p>
+          </div><br/>
+          <div>                 
+               <table cellpadding="10" cellspacing="10">
+                  
+                    <div style="float:center;width:100%;border: 1px solid black;">
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Salutation"/></b>
+                          </td>
+                          <td>
+                                  <apex:inputField value="{!Candidate_Ashish__c.Salutation__c}" />    
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Candidate_Name"/></b>
+                          </td>
+                          <td>
+                                  <apex:inputField value="{!Candidate_Ashish__c.Name}" />    
+                          </td>
+                      </tr>
+                      
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="First Name "/></b>
+                          </td>
+                          <td>
+                                  <apex:inputField value="{!Candidate_Ashish__c.First_Name__c}" />    
+                          </td>
+                      </tr>
+                      
+                       <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Last Name"/></b>
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.Last_Name__c}" /> 
+                          </td>
+                      </tr>
+                      
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Email "/></b>
+                          </td>
+                          <td>
+                                  <apex:inputField value="{!Candidate_Ashish__c.Email__c}" /> 
+                          </td>
+                      </tr> 
+                      
+                       <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Date of Birth" /></b>
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.DOB__c}" /> 
+                          </td>                      
+                      </tr> 
+                      
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Location" /></b>
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.Country__c}" /> 
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.State__c}" /> 
+                          </td>
+                      </tr>                
+                       
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Expected Salary Range" /></b>
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.Expected_Salary__c}" /> 
+                          </td>                      
+                      </tr> 
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Pictures" /></b>
+                          </td>
+                          <td>
+                                   <apex:inputField value="{!Candidate_Ashish__c.Upload_Your_Pict__c}" /> 
+                          </td>                      
+                      </tr>
+                     <tr>
+                         <td>
+         				<apex:pageBlockButtons >
+        					<apex:commandButton action="{!upload}" value="Save" />
+      					</apex:pageBlockButtons>
+						</td>
+                         <apex:pageBlockSection showHeader="false" columns="2" id="block1">        				
+						
+        				<apex:pageBlockSectionItem >
+          					<apex:outputLabel value="Resume" for="file"/>
+          					<apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>
+        				</apex:pageBlockSectionItem>                 
+                        </apex:pageBlockSection> 
+                        
+                     </tr> 
+                      
+                    </div>
+              </table>
+              
+              </div>            
+      <!-- </apex:pageBlockSection> -->
+  </apex:pageBlock>  
+  </apex:form>
+</apex:page>

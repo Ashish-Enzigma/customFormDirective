@@ -1,0 +1,50 @@
+<apex:page >
+    <!--Valid(true) and invalied(false)-->    
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+    	var app=angular.module('myApp',[]);    
+    </script>
+    
+    <!--Valid(true) and invalied(false)
+    <style>
+        input.ng-invalid {
+        background-color:pink;
+        }
+        input.ng-valid {
+        background-color:lightgreen;
+        }
+    </style>
+    -->
+    <div ng-app='myApp'>        
+    <form name="myForm">
+       <div>
+            Type Any thing Input1<input name="myInput1" ng-model="obj.myInput1" required="true"/>
+           <span ng-show="!myForm.myInput1.$valid && !myForm.myInput1.$pristine">Input1 is required</span>
+        </div>
+        <div>
+            Type Any thing Input<input name="myInput"  ng-model="obj.myInput" required="true"/>
+            <span ng-show="">Input is required</span>
+        </div>
+       
+         
+    </form>
+    
+    <!--Show Value of Valid By defualt(false)set -->
+    <p>Input field MyInput1 is in valid state on not:</p>
+    <h1>$valid : {{myForm.myInput1.$valid}}</h1>
+         <h1>$Invalid : {{myForm.myInput1.$Invalid}}</h1>
+         <h1>$dirty : {{myForm.myInput1.$dirty}}</h1>
+         <h1>$pristine : {{myForm.myInput1.$pristine}}</h1>
+         <h1>$touched : {{myForm.myInput1.$touched}}</h1>
+        
+     <!--Show Value of Valid By defualt(false)set -->
+    <p>Input field MyInput is in valid state on not:</p>
+    <h1>$valid : {{myForm.myInput.$valid}}</h1>
+         <h1>$Invalid : {{myForm.myInput.$Invalid}}</h1>
+         <h1>$dirty : {{myForm.myInput.$dirty}}</h1>
+         <h1>$pristine : {{myForm.myInput.$pristine}}</h1>
+         <h1>$touched : {{myForm.myInput.$touched}}</h1>
+    </div>
+    
+</apex:page>

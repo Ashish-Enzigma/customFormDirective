@@ -1,0 +1,87 @@
+<apex:page controller="Fetch_ActiveJobList" sidebar="false" showHeader="false" >
+
+  <apex:form >
+  <apex:pageBlock title="Job Wizard" onmouseover="Job Wizard">
+      <!--<apex:pageBlockSection >-->
+          <div style="text-align: center;"><apex:image URL="{!$Resource.Enzigma_logo}"/></div>            
+          <div>
+              <u>Job Portal:</u><br/>
+                <p>Preview:</p>
+          </div><br/>
+          <div>
+              
+              <table cellpadding="10" cellspacing="10">
+                  <apex:repeat var="record" value="{!JobList}">
+                    <div style="float:center;width:100%;border: 1px solid black;">
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Discription "/></b>
+                          </td>
+                          <td>
+                                  <apex:outputText value="{!record.Description__c}" />    
+                          </td>
+                      </tr>
+                      
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Valid Till "/></b>
+                          </td>
+                          <td>
+                                  <apex:outputText value="{!record.Expires_On__c}" />    
+                          </td>
+                      </tr>
+                      
+                       <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Requeried Skill"/></b>
+                          </td>
+                          <td>
+                                   <apex:outputText value="{!record.Required_Skills__c}" /> 
+                          </td>
+                      </tr>
+                      
+                      <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Qualification Required "/></b>
+                          </td>
+                          <td>
+                                  <apex:outputText value="{!record.Qualification_Required__c}" /> 
+                          </td>
+                      </tr> 
+                      
+                       <tr>
+                          <td>
+                                  <b><apex:outputLabel value="Certification Required  " /></b>
+                          </td>
+                          <td>
+                                   <apex:outputText value="{!record.Certification_Required__c}" /> 
+                          </td>                      
+                      </tr> 
+                      
+                      
+                       <tr>
+                          <td>
+                              <apex:commandButton value="Apply"  action="{!applyForJob}" reRender="target">
+          	  				  <apex:param name="Job Id" value="{!record.id}" assignTo="{!jobID}"/>
+                              </apex:commandButton>
+                              
+                          </td>
+                          
+                      </tr>
+                      
+                    </div>
+                         
+                      
+                  
+                  </apex:repeat>
+        
+              </table>
+              
+          </div>
+          
+      <!--</apex:pageBlockSection>-->
+  </apex:pageBlock>  
+  </apex:form>
+    
+    
+</apex:page>

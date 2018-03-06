@@ -1,0 +1,19 @@
+<apex:page sidebar="false" controller="AccountWarpper">
+    <apex:form >
+    <apex:pageBlock title="Accounts Table">
+        <!--<apex:pageBlockButtons action="" value="" rendered="block2">            
+        </apex:pageBlockButtons>-->
+        
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!wrapAccountList}" var="wraplist">
+                
+                    <apex:column value="{!wraplist.objAccount.name}"/>
+                    <apex:column value="{!wraplist.objAccount.phone}"/>
+                    <apex:column value="{!wraplist.objAccount.billingcity}"/>
+                
+
+            </apex:pageBlockTable>
+        </apex:pageBlockSection> 
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

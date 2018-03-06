@@ -1,0 +1,37 @@
+<apex:page standardController="job_ashish__c" extensions="navigationToPageController" sidebar="false" showHeader="false" >
+
+  <apex:form >
+  <apex:pageBlock title="Job Wizard" onmouseover="Job Wizard">
+      <apex:pageBlockSection >
+          <div><apex:image URL="{!$Resource.Enzigma_logo}"/></div>            
+          <div>
+              <u>Job Registration:</u><br/>
+          		<p>Step-3:</p>
+          </div><br/>
+          <div>
+              Preview:
+              
+          </div><br/>
+          <!--<div>-->
+          <div>
+               <apex:outputField value="{!job_ashish__c.RecordTypeId}"/>
+              <apex:outputField value="{!job_ashish__c.Name}"/>
+              <apex:outputField value="{!job_ashish__c.Description__c}"/><br/>
+              <apex:outputField value="{!job_ashish__c.Number_of_Positions__c}"/><br/>
+              <apex:outputField value="{!job_ashish__c.Contact__c}"/><br/>
+              <apex:outputField value="{!job_ashish__c.Expires_On__c}"/><br/>
+              <apex:outputField value="{!job_ashish__c.Qualification_Required__c}"/><br/>
+              <apex:outputField value="{!job_ashish__c.Certification_Required__c}"/><br/>
+             <apex:outputField value="{!job_ashish__c.Required_Skills__c}"/><br/>
+             
+          </div>
+          <div> 
+          	<span><apex:commandButton value="Active Now"  action="{!active}"/></span> 
+            <span>  <apex:commandButton value="Active Later"  action="{!deactive}"/> </span> 
+          </div> 
+      </apex:pageBlockSection>
+  </apex:pageBlock>  
+  </apex:form>
+    
+    
+</apex:page>

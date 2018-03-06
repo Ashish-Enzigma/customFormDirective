@@ -1,0 +1,24 @@
+<apex:page >
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    
+    <script>
+    	var app= angular.module('myNgApp',[]);
+		app.controller('myCtrl',function($scope){
+        	$scope.names = [
+               {empno: "104", ename: "Jag"},
+               {empno: "102", ename: "Victory"},
+                //{empno: "103", ename: "Krish"},
+           ];
+        });    
+    </script>
+    
+    <div ng-app='myNgApp'>
+        <div ng-controller='myCtrl'>
+            <div ng-repeat="emp in names">
+                
+                <div>{{emp.empno}} = {{emp.ename}}</div>
+            </div>            
+        </div>
+    </div>
+        
+</apex:page>

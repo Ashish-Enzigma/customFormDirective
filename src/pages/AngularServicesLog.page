@@ -1,0 +1,16 @@
+<apex:page >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app=angular.module('myApp',[]);
+    	app.controller('mycontroller',function($log){
+        	$log.log('log1');
+            $log.error('error this is too much');
+            $log.info('Information');
+            $log.warn('Warning');
+            $log.debug('test my code');//Check once            
+        });
+    </script>
+    <div ng-app="myApp" ng-controller='mycontroller'>
+        <p>test console logs of the file</p>
+    </div>
+</apex:page>

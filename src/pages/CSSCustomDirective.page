@@ -1,0 +1,11 @@
+<apex:page >
+    var app=angular.module('myapp',function(){});
+    app.directive('myDomDirctive'.function(){
+    	return{
+    	link: function($scope, element, attrs){
+    		element.bind('click',function(){
+    })
+    
+    }
+    })
+</apex:page>

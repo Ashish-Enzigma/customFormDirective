@@ -1,7 +1,4 @@
-<apex:page >
-   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
-   <script>
-       var radioApp = angular.module('radioApp',[]);
+   var radioApp = angular.module('radioApp',[]);
    
     radioApp.controller('selectRadioButtonController',function($scope){
         $scope.names = ["Male","Female","Other"];
@@ -29,26 +26,8 @@
                     $scope.newOptions = angular.copy($scope.options);
                		$scope.getSelectedValue = function(optionValue){
                     	$scope.selectedValue = optionValue;
-                        $scope.options.values.push('Added By Dir');
+                        //change//$scope.options.values.push('Added By Dir');
                     }
                }
            }
        });
-   </script>
-   
-   <div ng-app="radioApp">
-       <div ng-controller="selectRadioButtonController">
-           employeeRadioOptions : {{employeeRadioOptions}}
-           customerRadioOptions : {{customerRadioOptions}}<br/>
-           Employee Gender : 
-           <form>
-               <enzi-radio-button options="employeeRadioOptions"></enzi-radio-button>
-           </form>
-           Customer Gender : 
-           <form>
-               <enzi-radio-button options="customerRadioOptions"></enzi-radio-button>
-           </form>
-           
-       </div>
-   </div>
-</apex:page>

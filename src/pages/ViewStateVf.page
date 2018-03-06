@@ -1,0 +1,6 @@
+<apex:page controller="TransientController">
+  The Current Time is : {!currentDateTime} <br/>
+  <apex:form >
+    <apex:commandLink value="refresh"/>
+  </apex:form>
+</apex:page>
